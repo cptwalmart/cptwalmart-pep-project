@@ -7,8 +7,13 @@ import io.javalin.Javalin;
  */
 public class Main {
     public static void main(String[] args) {
-        SocialMediaController controller = new SocialMediaController();
-        Javalin app = controller.startAPI();
-        app.start(8080);
+        try {
+            SocialMediaController controller = new SocialMediaController();
+            Javalin app = controller.startAPI();
+            app.start(8080);
+        } catch (Exception e) {
+            System.out.println("Error starting Javalin: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }
